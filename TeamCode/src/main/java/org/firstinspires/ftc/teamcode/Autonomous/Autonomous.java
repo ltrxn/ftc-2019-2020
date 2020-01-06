@@ -26,8 +26,7 @@ public class Autonomous extends LinearOpMode {
 
         waitForStart();
 
-        robot.turn(90, .4);
-        //driveStraightDistance(5, 0.3);
+
     }
 
     public void driveStraightDistance(double distanceInInches, double masterPower) {
@@ -41,7 +40,7 @@ public class Autonomous extends LinearOpMode {
         double slavePower = masterPower - .1;
 
         int error = 0;
-        int kp = 5;
+        int kp = 3;
 
         robot.resetEncoders();
         sleep(100);
@@ -64,7 +63,7 @@ public class Autonomous extends LinearOpMode {
             telemetry.addLine()
                 .addData("Current Position", totalTicks)
                 .addData("Target Position", targetTick);
-
+            telemetry.update();
         }
 
         robot.setMotorPower(0, 0, 0, 0);
