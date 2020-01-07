@@ -77,7 +77,6 @@ public class Hardware {
         leftFront.setDirection(DcMotor.Direction.REVERSE);
         leftBack.setDirection(DcMotor.Direction.REVERSE);
 
-        resetEncoders();
     }
 
     /**

@@ -43,12 +43,12 @@ public class DriveOpMode extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-
-            /*FIELD CENTRIC DRIVING
+/*
+            //FIELD CENTRIC DRIVING
             //Gamepad 1 - LEFT JOYSTICK - Strafes robot
             double findRadius = Math.hypot(-gamepad1.right_stick_x, -gamepad1.right_stick_y);
             double findRadian = (Math.atan2(-gamepad1.right_stick_y, gamepad1.right_stick_x) - Math.PI / 3.5);
-            double findDegree = (findRadian*(180/Math.PI)) + angles.firstAngle;
+            double findDegree = (findRadian*(180/Math.PI)) + robot.getAngleDegree();
             double findAngle = findDegree*(Math.PI/180);
             double leftY = gamepad1.left_stick_y / 1.2;
             double v1 = findRadius * Math.cos(findAngle) - leftY;
@@ -58,15 +58,19 @@ public class DriveOpMode extends LinearOpMode {
 
             telemetry.addData("Radius", findRadius);
             telemetry.addData("Angle", findAngle);
-*/
+
+ */
+
+
             //Gamepad 1 - LEFT JOYSTICK - Strafes robot
             double radius = Math.hypot(-gamepad1.right_stick_x, -gamepad1.right_stick_y);
-            double robotAngle = Math.atan2(-gamepad1.right_stick_y, gamepad1.right_stick_x) - Math.PI / 3.5;
+            double robotAngle = Math.atan2(-gamepad1.right_stick_y, gamepad1.right_stick_x) - Math.PI;// / 3.5;
             double leftY = -gamepad1.left_stick_y / 2;
             double v1 = radius * Math.cos(robotAngle) + leftY;
             double v2 = radius * Math.sin(robotAngle) + leftY;
             double v3 = radius * Math.sin(robotAngle) + leftY;
             double v4 = radius * Math.cos(robotAngle) + leftY;
+
 
 
             //Gamepad 1 - RIGHT TRIGGER - Robot turns clockwise
