@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.System.Hardware;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Red Loading Zone and Blue Building Zone", group = "official")
-public class RedLoadingZone extends LinearOpMode {
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Blue Loading Zone and Red Building Zone", group = "official")
+public class RedBuildingZone extends LinearOpMode {
 
     Hardware robot = new Hardware();
 
@@ -19,7 +19,7 @@ public class RedLoadingZone extends LinearOpMode {
         /**********************
             INITIALIZATION
          **********************/
-        telemetry.addData("For RED loading zone", "or BLUE building zone");
+        telemetry.addData("For BLUE loading zone", "or RED building zone");
         telemetry.addData("Align back wheels against the tile seam!", "face the bridge.");
         telemetry.addData("Initialization", "In Progress");
 
@@ -28,7 +28,7 @@ public class RedLoadingZone extends LinearOpMode {
 
         robot.init(hardwareMap, telemetry, this);
 
-        telemetry.addData("For RED loading zone", "or BLUE building zone");
+        telemetry.addData("For BLUE loading zone", "or RED building zone");
         telemetry.addData("Align back wheels against the tile seam!", "face the bridge.");
         telemetry.addData("Initialization", "Ready");
         telemetry.update();
@@ -43,7 +43,7 @@ public class RedLoadingZone extends LinearOpMode {
         telemetry.update();
 
         //strafe to the left
-        robot.setMotorPower(-DRIVE_SPEED,DRIVE_SPEED_SLOWER,DRIVE_SPEED,-DRIVE_SPEED_SLOWER);
+        robot.setMotorPower(DRIVE_SPEED,-DRIVE_SPEED_SLOWER,-DRIVE_SPEED,DRIVE_SPEED_SLOWER);
         sleep(500);
         robot.setMotorPower(0,0,0,0);
 
