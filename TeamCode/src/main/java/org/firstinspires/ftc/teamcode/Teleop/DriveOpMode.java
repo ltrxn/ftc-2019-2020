@@ -20,7 +20,7 @@ public class DriveOpMode extends LinearOpMode {
 
     //servos
     private static final double CLAW_OPEN   = .65;
-    private static final double CLAW_CLOSE  = .2;
+    private static final double CLAW_CLOSE  = .15;
     private double clawPosition = CLAW_OPEN;
 
     //motor
@@ -64,7 +64,7 @@ public class DriveOpMode extends LinearOpMode {
 
             //Gamepad 1 - LEFT JOYSTICK - Strafes robot
             double radius = Math.hypot(-gamepad1.right_stick_x, -gamepad1.right_stick_y);
-            double robotAngle = Math.atan2(-gamepad1.right_stick_y, gamepad1.right_stick_x) - Math.PI;// / 3.5;
+            double robotAngle = Math.atan2(-gamepad1.right_stick_y, gamepad1.right_stick_x) - Math.PI/ 3.5;
             double leftY = -gamepad1.left_stick_y / 2;
             double v1 = radius * Math.cos(robotAngle) + leftY;
             double v2 = radius * Math.sin(robotAngle) + leftY;
@@ -92,12 +92,12 @@ public class DriveOpMode extends LinearOpMode {
             }
 
             //Gamepad 1/2 - RIGHT BUMPER - Claws open
-            if (gamepad1.left_bumper || gamepad2.left_bumper) {
+            if (gamepad1.left_bumper || gamepad2.left_trigger > 0.2) {
                 clawPosition = CLAW_OPEN;
             }
 
             //Gamepad 1/2 - LEFT BUMPER - Claws closes
-            if (gamepad1.right_bumper || gamepad2.right_bumper) {
+            else if (gamepad1.right_bumper || gamepad2.right_trigger > 0.2) {
                 clawPosition = CLAW_CLOSE;
             }
 
