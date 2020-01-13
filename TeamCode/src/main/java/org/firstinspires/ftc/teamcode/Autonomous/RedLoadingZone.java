@@ -20,7 +20,7 @@ public class RedLoadingZone extends LinearOpMode {
             INITIALIZATION
          **********************/
         telemetry.addData("For RED loading zone", "or BLUE building zone");
-        telemetry.addData("Align back wheels against the tile seam!", "face the bridge.");
+        telemetry.addData("Align FRONT wheels against the tile seam!", "face AWAY from the bridge.");
         telemetry.addData("Initialization", "In Progress");
 
         telemetry.setMsTransmissionInterval(100);
@@ -42,14 +42,15 @@ public class RedLoadingZone extends LinearOpMode {
         telemetry.addData("Drive Under Bridge", "In Progress");
         telemetry.update();
 
-        //strafe to the left
-        robot.setMotorPower(-DRIVE_SPEED,DRIVE_SPEED_SLOWER,DRIVE_SPEED,-DRIVE_SPEED_SLOWER);
-        sleep(500);
+        //strafe to the RIGHT
+        robot.setMotorPower(DRIVE_SPEED,-DRIVE_SPEED_SLOWER,-DRIVE_SPEED,DRIVE_SPEED_SLOWER);
+        //sleep(500);
+        sleep(4400);
         robot.setMotorPower(0,0,0,0);
 
-       //move forward
-        robot.setMotorPower(DRIVE_SPEED,DRIVE_SPEED_SLOWER,DRIVE_SPEED,DRIVE_SPEED_SLOWER);
-        sleep(2000);
+       //move BACKWARDS
+        robot.setMotorPower(-DRIVE_SPEED,-DRIVE_SPEED_SLOWER,-DRIVE_SPEED,-DRIVE_SPEED_SLOWER);
+        sleep(1500);
 
         telemetry.addData("Drive Under Bridge", "Complete");
         telemetry.update();

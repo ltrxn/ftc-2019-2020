@@ -116,6 +116,7 @@ public class DriveOpMode extends LinearOpMode {
             telemetry.addData("Encoder leftBack", robot.leftBack.getCurrentPosition());
             telemetry.addData("Heading", formatAngle(robot.getAngles().angleUnit, robot.getAngles().firstAngle));
             telemetry.addData("Claw position", robot.claw.getPosition());
+            telemetry.addData("rightFront", robot.rightFront.getPower());
             telemetry.update();
             idle();
 
